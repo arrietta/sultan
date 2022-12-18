@@ -10,11 +10,11 @@
             margin: 0px;
         }
         .box{
-            margin-top: 90px;
+            margin-top: 75px;
             position: relative;
             padding: 0;
-            padding-right:3%;
-            padding-left: 3%;    
+            padding-right:10%;
+            padding-left: 10%;    
             display: flex;
             z-index: 0;
         }
@@ -22,11 +22,11 @@
         header{
             position: fixed;
             top: 0;
-            height: 90px;
+            height: 75px;
             width:100%;
             margin: 0;
             background-color: #2D4263;
-            
+            display: flex;
             z-index: 1;
 
         }
@@ -38,28 +38,33 @@
         gap: 10px 10px;
         
         }
-        .item {
-        grid-column-start: 3;
-        grid-column-end: 3;
-        }.grid-container {
+        .grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
-            gap: 10px;
+            gap: 5px;
             padding: 10px;
             margin: 10px;
+            align-items: center;
             }
 
         .grid-container > div {
             background-color: rgba(255, 255, 255, 0.8);
             text-align: center;
-            padding: 20px 0;
+            align-items: center;
+    
             font-size: 30px;
         }
-
+        .logo{
+            padding: 5px;
+            margin-left: 10%;
+            display: flex;
+            color: white;
+            justify-content: center;
+            text-align: center;
+        }
         #SDU{
-            margin-left: 50px;
-            color: aliceblue;
             
+            border-radius: 50%;
         }
         .left{
             margin-top: 50px;
@@ -68,28 +73,52 @@
             height: inherit;
             background-color: #e3e7ee;
         }
+        .item {
+            position:static;
+            padding: 10px;
+            background-color: white;
         
+        }
+        .item:hover{
+            padding: 2px;
+            background-color: #b6c2d4;
+            transition: 0.5s;
+        }
+        .container{
+            position: relative;
+        }.Title{
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1 id ='SDU'>SDU STORE</h1>
+        <div class="logo">
+        <img src="SDU.jpg" alt="" id="SDU">
+        <h1 class="Title">SDU Store</h2>
+        </div>
+        
     </header>
     <div class="box">
         <div class="left">
-            
+            <ul>
+                <li>Colour</li>
+                <li>Tea</li>
+                <li>Milk</li>
+              </ul>
+              
         </div>
         <div class="Mid">
             <div class="grid-container">
-                <img src="IMAGE/T1.jpg" height="100%" width="100%" alt="Photo" >
-                <img src="IMAGE/T2.jpg" height="100%" width="100%" alt="Photo" >
-                <img src="IMAGE/T3.jpg" height="100%" width="100%" alt="Photo" >
-                <img src="IMAGE/T4.jpg" height="100%" width="100%" alt="Photo" >
-                <img src="IMAGE/T5.jpg" height="100%" width="100%" alt="Photo">
-                <img src="IMAGE/T6.jpg" height="100%" width="100%" alt="Photo">
-                <img src="IMAGE/k1.jpg" height="100%" width="100%" alt="Photo">
-                <img src="IMAGE/k2.jpg" height="100%" width="100%" alt="Photo">
-                <img src="IMAGE/k3.jpg" height="100%" width="100%" alt="Photo">
+                <div class="container"><img src="IMAGE/TShirt_1.jpg" height="90%" width="90%" alt="Photo" class="item" > </div>
+                <div class="container"><img src="IMAGE/TShirt_2.jpg" height="90%" width="90%" alt="Photo"  class="item"></div>
+                <div class="container"><img src="IMAGE/Bag_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Bag_3.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Bottle_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Heat_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Polo_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Polo_2.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/SWS_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
             </div>
         </div>
     </div>
