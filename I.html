@@ -6,6 +6,11 @@
     <title>Menu</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
+        *{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+        }
         body{
             margin: 0px;
         }
@@ -19,21 +24,23 @@
             background-color: #2D4263;
             display: flex;
             z-index: 1;
+            justify-content: space-around;
 
         }
-        .logo{
-            text-align: center;
-            justify-content: center;
-            margin-left: 10%;
-            display: flex;
-            color: white;
-        }
-        #SDU{
-            height: auto;
-            width: auto;
-            border-radius: 50%;
-        }
+        
         .Title{
+            color: white;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            margin-left: 10px;
+            font-size: 2vw;
+        }
+        .up{
+            color: white;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
             margin-left: 10px;
             font-size: 2vw;
         }
@@ -77,7 +84,7 @@
             margin-top: 3%;
             width: 60%;
             position: relative;
-            border-right: 1px #2D4263 solid;
+            border-right: 2px #2D4263 solid;
             padding: 5px;
             
         }
@@ -109,6 +116,9 @@
         .fix{
             transition: 0.05s;
         }
+        a{
+            text-decoration-line:none ;
+        }
         
         
         
@@ -116,10 +126,13 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-        <img src="SDU.jpg" alt="" id="SDU">
-        <h1 class="Title">SDU STORE</h2>
-        </div>
+        <a href="info.php"><h2 class="up">Info</h2></a>
+        <a href="Catalog.php"><h2 class="up">Catalog</h2></a>
+        <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
+        <a href="Basket.php"><h2 class="up">Basket</h2></a>
+        
+        <a href="Account.php"> <h2 class="up">Account</h2> </a>
+        
         
     </header>
     <div class="box">
@@ -155,15 +168,15 @@
         </div>
         <div class="Mid">
             <div class="grid-container">
-                <div class="container"><img src="IMAGE/TShirt_1.jpg" height="90%" width="90%" alt="Photo" class="item" > </div>
-                <div class="container"><img src="IMAGE/TShirt_2.jpg" height="90%" width="90%" alt="Photo"  class="item"></div>
-                <div class="container"><img src="IMAGE/Bag_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Bag_3.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Bottle_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Heat_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Polo_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Polo_2.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/Sweet_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/hoodie-black.jpg" height="90%" width="90%" alt="Photo" class="item" > </div>
+                <div class="container"><img src="IMAGE/hoodie-Blue.jpg" height="90%" width="90%" alt="Photo"  class="item"></div>
+                <div class="container"><img src="IMAGE/hoodie-blued.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/hoodie-green.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/hoodie-print-green.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/kruzhka-yellow.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/jersey-blue.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/jersey-blue.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/jersey-prinnt-white.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
             </div>
         </div>
     </div>
