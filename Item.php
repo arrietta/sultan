@@ -47,9 +47,33 @@
         
         a{
             text-decoration-line:none ;
+        }.box{
+            margin-top: 5%;
+            position: relative;
+            padding: 0;   
+            display: flex;
+            z-index: 0;
         }
-        
-        
+        .Left{
+            text-align:center;
+            width: 50%;
+            
+            padding-top:6%;
+        }
+        .Right{
+            width: 50%;
+            background-color:#DDD9D9;
+            padding: 20px;
+            padding-top:80px;
+            height:75vh ;
+        }
+        .size{
+            display:flex;
+        }
+        .size > div{
+            margin:5px;
+            font-size:20px;
+        }
         
     </style>
 </head>
@@ -60,19 +84,36 @@
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
         <a href="Basket.php"><h2 class="up">Basket</h2></a>
         <a href="Account.php"> <h2 class="up">Account</h2> </a>
-        <div style="pos"></div>
-        <style>
-        </style>
+        
     </header>
     <div class="box">
-        <div style="position: absolute;bottom :0px;">
+        <div class="Left">
             <?php
-            session_start(); 
-            $login= $_SESSION['Name'];
-            echo $login;
+            $name= $_COOKIE['name'];
+            include "Temp/Conn.php";
+                    $stmt = $pdo->prepare("SELECT * FROM item where name = '$name' ");
+                    $stmt->execute();
+                    $res = $stmt->fetchAll();
+                    $price = $res[0]['Price'];
+                    $Com =$res[0]['Comment'];
+            echo '<img src=IMAGE/'. $name.' height="70%" width="50%">';
+
             ?>
+            
         </div>
-        <div></div>
+        <div class="Right">
+        <?php
+            echo '<h1 style="font-size:48px;">'.ucfirst(substr($name ,0,strlen($name) - 4)).'</h1>';
+            echo '<h1 style="font-size:48px;">'.$price.' KZT</h1>';
+        ?>
+            <h1 style="font-size:36px; color:#C84B31">Buy now </h1> 
+            <?php
+            echo '<h1 style="font-size:48px;">'.$Com.'</h1>';
+           
+        ?>   
+
+            
+        </div>
     </div>
     
     

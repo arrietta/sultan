@@ -14,7 +14,6 @@
         body{
             margin: 0px;
         }
-        
         header{
             position: fixed;
             top: 0;
@@ -25,7 +24,6 @@
             display: flex;
             z-index: 1;
             justify-content: space-around;
-
         }
         
         .Title{
@@ -33,17 +31,10 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
-            margin-left: 10px;
+            
             font-size: 2vw;
         }
-        .up{
-            color: white;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            margin-left: 10px;
-            font-size: 2vw;
-        }
+        
         .box{
             margin-top: 5%;
             position: relative;
@@ -69,8 +60,6 @@
             align-items: center;
             font-size: 30px;
         }
-        
-        
         
         .item {
             position:static;
@@ -115,28 +104,45 @@
             padding: 5px;
             font-size: 18px;
         }
-        .fix{
-            transition: 0.05s;
-        }
+        
         a{
             text-decoration-line:none ;
         }
-        
+        @media only screen and (max-width: 1000px) {
+            .grid-container {
+            
+            grid-template-columns: auto auto ;
+            
+            }
+        }   
+        @media only screen and (max-width: 680px) {
+            .grid-container {
+            
+            grid-template-columns: auto  ;
+            
+            }
+            .price{
+            display: inline;
+        }
+        .rm-price{
+            margin:5px;
+            width:15vw ;
+        }
+        }   
         
         
     </style>
 </head>
 <body>
-    
+<?php
+    session_start();
+    ?>
     <header>
-        <a href="info.php"><h2 class="up">Info</h2></a>
-        <a href="Catalog.php"><h2 class="up">Catalog</h2></a>
+        <a href="info.php"><h2 class="Title">Info</h2></a>
+        <a href="Catalog.php"><h2 class="Title">Catalog</h2></a>
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
-        <a href="Basket.php"><h2 class="up">Basket</h2></a>
-        
-        <a href="Account.php"> <h2 class="up">Account</h2> </a>
-        
-        
+        <a href="Basket.php"><h2 class="Title">Basket</h2></a>
+        <a href="Account.php"> <h2 class="Title">Account</h2> </a>
     </header>
     <div class="box">
         <div class="left">
@@ -188,14 +194,15 @@
     </div>
     
     <script>
+         
         $('.item').click(function(){
             var x = $(this).attr('src');
-            <?php 
-            session_start();
-                $_SESSION['Name'] = "<script>document.write(x)</script>";
-                ?>
-                window.open("item.php" ,"_self");
+            
+            document.cookie = "name = " + x.substring(6);
+            setTimeout(function() { window.open("item.php" ,"_self");},500);
+            
         });
+        
         window.addEventListener('scroll',(event)=>{    
             $('.fix').css("margin-top",$(window).scrollTop());
             console.log($(window).scrollTop());
