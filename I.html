@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
         body{
             margin: 0px;
@@ -72,12 +73,13 @@
             transition: 0.5s;
         }
         .left{
-            padding: 3px;
+            
             margin-top: 3%;
-            width: 80%;
+            width: 60%;
             position: relative;
-            border: 1px rgb(148, 139, 139) dotted;
-            border-radius: 1%;
+            border-right: 1px #2D4263 solid;
+            padding: 5px;
+            
         }
         
         ul{
@@ -91,10 +93,22 @@
             width:4.5vw ;
         }
         .price{
-            display: flex;
+            margin: 8px;
+            margin-top: 10px;
             
+            display: flex;
         }
+        .Fname{
+            font-size: 130%;
         
+        }
+        .type li{
+            padding: 5px;
+            font-size: 18px;
+        }
+        .fix{
+            transition: 0.05s;
+        }
         
         
         
@@ -110,29 +124,32 @@
     </header>
     <div class="box">
         <div class="left">
-            <div>
-                <strong class="Fname">Price</strong>
-                <div class="price">
-                    <div style="padding:0 6px 0 0 ">от</div>
-                    <input type="text" id="minPrice_" name="minPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">
-                    <div style="padding:0 6px">до</div>
-                    <input type="text" id="maxPrice_" name="maxPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">&nbsp;Тнг
+            <div class="fix">
+                <div>
+                    <strong class="Fname">Price</strong>
+                    <div class="price">
+                        <div style="padding:0 6px 0 0 ">от</div>
+                        <input type="text" id="minPrice_" name="minPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">
+                        <div style="padding:0 6px">до</div>
+                        <input type="text" id="maxPrice_" name="maxPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">&nbsp;Тнг
+                    </div>
+                </div>
+                <div>
+                    <ul class="type">
+                        <strong class="Fname" >Type</strong>
+                        <li ><div ><input type="checkbox">Hoody</div> </li>
+                        <li ><div ><input type="checkbox">Tshirt</div></li>
+                        <li ><div ><input type="checkbox">SweetShirt</div></li>
+                        <li ><div ><input type="checkbox">ZIP Hoody </div></li>
+                        <li ><div ><input type="checkbox">Polo</div></li>
+                        <li ><div ><input type="checkbox">Bag</div></li>
+                        <li ><div ><input type="checkbox">Cup</div></li>
+                        <li ><div ><input type="checkbox">Cap</div></li>
+                        <li ><div ><input type="checkbox">Bottle</div></li>
+                    </ul>
                 </div>
             </div>
-            <div>
-                <ul>
-                    <strong class="Fname" >Type</strong>
-                    <li ><div><input type="checkbox">Hoody</div> </li>
-                    <li  > <div class="type"><input type="checkbox">Tshirt</div></li>
-                    <li > <div class="type"><input type="checkbox">SweetShirt</div></li>
-                    <li ><div class="type"><input type="checkbox">ZIP Hoody </div></li>
-                    <li ><div class="type"><input type="checkbox">Polo</div></li>
-                    <li ><div class="type"><input type="checkbox">Bag</div></li>
-                    <li ><div class="type"><input type="checkbox">Cup</div></li>
-                    <li ><div class="type"><input type="checkbox">Cap</div></li>
-                    <li ><div class="type"><input type="checkbox">Bottle</div></li>
-                </ul>
-            </div>
+            
             
               
         </div>
@@ -153,8 +170,13 @@
     
     <script>
         function type(e){
-            console.log('d');
+        console.log('d');
+        
         }
+        window.addEventListener('scroll',(event)=>{    
+            $('.fix').css("margin-top",$(window).scrollTop());
+            console.log($(window).scrollTop());
+        })
     </script>
     
 </body>
