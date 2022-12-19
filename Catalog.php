@@ -60,6 +60,7 @@
             grid-template-columns: auto auto auto;
             padding: 10px;
             margin: 10px;
+            gap:0 2vw ;
             align-items: center;
             }
 
@@ -70,12 +71,13 @@
         }
         
         
+        
         .item {
             position:static;
             padding: 5%;
         }
         .item:hover{
-            padding: 1%;
+            padding: 5%;
             background-color: #b6c2d4;
             transition: 0.5s;
         }
@@ -125,6 +127,7 @@
     </style>
 </head>
 <body>
+    
     <header>
         <a href="info.php"><h2 class="up">Info</h2></a>
         <a href="Catalog.php"><h2 class="up">Catalog</h2></a>
@@ -168,28 +171,36 @@
         </div>
         <div class="Mid">
             <div class="grid-container">
-                <div class="container"><img src="IMAGE/hoodie-black.jpg" height="90%" width="90%" alt="Photo" class="item" > </div>
-                <div class="container"><img src="IMAGE/hoodie-Blue.jpg" height="90%" width="90%" alt="Photo"  class="item"></div>
-                <div class="container"><img src="IMAGE/hoodie-blued.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/hoodie-green.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/hoodie-print-green.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/kruzhka-yellow.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/jersey-blue.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/jersey-blue.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/jersey-prinnt-white.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+            <?php
+                include "Temp/Conn.php";
+                    $stmt = $pdo->prepare("SELECT * FROM item");
+                    $stmt->execute();
+                    $res = $stmt->fetchAll();
+                    for($i = 0;$i<count($res);$i++){
+                        echo '<div class="container"><img src=IMAGE/'. $res[$i]["Name"].' height="90%" width="300vw"  alt="'.$res[$i]["Name"].'" class="item"  ></div>';
+                        
+                    }
+                    
+                ?>
+                
             </div>
         </div>
     </div>
     
     <script>
-        function type(e){
-        console.log('d');
-        
-        }
+        $('.item').click(function(){
+            var x = $(this).attr('src');
+            <?php 
+            session_start();
+                $_SESSION['Name'] = "<script>document.write(x)</script>";
+                ?>
+                window.open("item.php" ,"_self");
+        });
         window.addEventListener('scroll',(event)=>{    
             $('.fix').css("margin-top",$(window).scrollTop());
             console.log($(window).scrollTop());
         })
+        
     </script>
     
 </body>
