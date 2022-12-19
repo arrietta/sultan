@@ -6,7 +6,6 @@
     <title>Menu</title>
     <style>
         body{
-            background-color: white;
             margin: 0px;
         }
         
@@ -20,32 +19,6 @@
             display: flex;
             z-index: 1;
 
-        }
-        .box{
-            margin-top: 5%;
-            position: relative;
-            padding: 0;
-            padding-right:10%;
-            padding-left: 10%;    
-            display: flex;
-            z-index: 0;
-        }
-        
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            gap: 5px;
-            padding: 10px;
-            margin: 10px;
-            align-items: center;
-            }
-
-        .grid-container > div {
-            background-color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            align-items: center;
-    
-            font-size: 30px;
         }
         .logo{
             text-align: center;
@@ -63,44 +36,67 @@
             margin-left: 10px;
             font-size: 2vw;
         }
-        .left{
+        .box{
             margin-top: 5%;
-            position: sticky;
-            width: 780px;
-            
-            background-color: #e3e7ee;
-            
+            position: relative;
+            padding: 0;
+            padding-right:10%;
+            padding-left: 10%;    
+            display: flex;
+            z-index: 0;
         }
+        
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+            margin: 10px;
+            align-items: center;
+            }
+
+        .grid-container > div {
+            text-align: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        
+        
         .item {
             position:static;
-            padding: 10px;
-            background-color: white;
-        
+            padding: 5%;
         }
         .item:hover{
-            padding: 2px;
+            padding: 1%;
             background-color: #b6c2d4;
             transition: 0.5s;
         }
-        .container{
+        .left{
+            padding: 3px;
+            margin-top: 3%;
+            width: 80%;
             position: relative;
+            border: 1px rgb(148, 139, 139) dotted;
+            border-radius: 1%;
         }
-        .slider_l{
-            display: flex;
-        }
-        .filter{
-            padding-left: 10px;
-            
+        
+        ul{
+            padding-left: 0px;
         }
         li{
-            list-style:none;
+            list-style-type:none;
         }
+        
         .rm-price{
-            width: 40%;
+            width:4.5vw ;
         }
         .price{
             display: flex;
+            
         }
+        
+        
+        
         
     </style>
 </head>
@@ -114,28 +110,30 @@
     </header>
     <div class="box">
         <div class="left">
-            <ul class="Filter">
-                <li class="slider_l">
-                    
-        
-                        <div id="min_max_price" class="list-wrap">
-                            <table class="inter" cellpadding="0" cellspacing="0">
-                                <tbody>
-                                    <strong style="font-size: 20px;margin-bottom: 5px;">Price</strong>
-                                    <div class="price">
-                                        <div style="padding:0 6px 0 0 ">от</div>
-                                        <input type="text" id="minPrice_" name="minPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">
-                                        <div style="padding:0 6px">до</div>
-                                        <input type="text" id="maxPrice_" name="maxPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">&nbsp;ТНГ.
-                                    </div>
-                                </tbody>
-                            </table>
-                        </div>
-                      
-                </li>
-                <li>Tea</li>
-                <li>Milk</li>
-              </ul>
+            <div>
+                <strong class="Fname">Price</strong>
+                <div class="price">
+                    <div style="padding:0 6px 0 0 ">от</div>
+                    <input type="text" id="minPrice_" name="minPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">
+                    <div style="padding:0 6px">до</div>
+                    <input type="text" id="maxPrice_" name="maxPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">&nbsp;Тнг
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <strong class="Fname" >Type</strong>
+                    <li ><div><input type="checkbox">Hoody</div> </li>
+                    <li  > <div class="type"><input type="checkbox">Tshirt</div></li>
+                    <li > <div class="type"><input type="checkbox">SweetShirt</div></li>
+                    <li ><div class="type"><input type="checkbox">ZIP Hoody </div></li>
+                    <li ><div class="type"><input type="checkbox">Polo</div></li>
+                    <li ><div class="type"><input type="checkbox">Bag</div></li>
+                    <li ><div class="type"><input type="checkbox">Cup</div></li>
+                    <li ><div class="type"><input type="checkbox">Cap</div></li>
+                    <li ><div class="type"><input type="checkbox">Bottle</div></li>
+                </ul>
+            </div>
+            
               
         </div>
         <div class="Mid">
@@ -153,7 +151,11 @@
         </div>
     </div>
     
-    
+    <script>
+        function type(e){
+            console.log('d');
+        }
+    </script>
     
 </body>
 </html>
