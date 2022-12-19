@@ -9,8 +9,20 @@
             background-color: white;
             margin: 0px;
         }
+        
+        header{
+            position: fixed;
+            top: 0;
+            height: 5.2vw;
+            width:100%;
+            margin: 0;
+            background-color: #2D4263;
+            display: flex;
+            z-index: 1;
+
+        }
         .box{
-            margin-top: 75px;
+            margin-top: 5%;
             position: relative;
             padding: 0;
             padding-right:10%;
@@ -19,25 +31,6 @@
             z-index: 0;
         }
         
-        header{
-            position: fixed;
-            top: 0;
-            height: 75px;
-            width:100%;
-            margin: 0;
-            background-color: #2D4263;
-            display: flex;
-            z-index: 1;
-
-        }
-        .Mid{
-                     
-        }
-        .grid-container {
-        display: grid;
-        gap: 10px 10px;
-        
-        }
         .grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
@@ -55,23 +48,28 @@
             font-size: 30px;
         }
         .logo{
-            padding: 5px;
+            text-align: center;
+            justify-content: center;
             margin-left: 10%;
             display: flex;
             color: white;
-            justify-content: center;
-            text-align: center;
         }
         #SDU{
-            
+            height: auto;
+            width: auto;
             border-radius: 50%;
         }
+        .Title{
+            margin-left: 10px;
+            font-size: 2vw;
+        }
         .left{
-            margin-top: 50px;
+            margin-top: 5%;
             position: sticky;
-            width: 700px;
-            height: inherit;
+            width: 780px;
+            
             background-color: #e3e7ee;
+            
         }
         .item {
             position:static;
@@ -86,23 +84,55 @@
         }
         .container{
             position: relative;
-        }.Title{
-            margin-left: 10px;
         }
+        .slider_l{
+            display: flex;
+        }
+        .filter{
+            padding-left: 10px;
+            
+        }
+        li{
+            list-style:none;
+        }
+        .rm-price{
+            width: 40%;
+        }
+        .price{
+            display: flex;
+        }
+        
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
         <img src="SDU.jpg" alt="" id="SDU">
-        <h1 class="Title">SDU Store</h2>
+        <h1 class="Title">SDU STORE</h2>
         </div>
         
     </header>
     <div class="box">
         <div class="left">
-            <ul>
-                <li>Colour</li>
+            <ul class="Filter">
+                <li class="slider_l">
+                    
+        
+                        <div id="min_max_price" class="list-wrap">
+                            <table class="inter" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <strong style="font-size: 20px;margin-bottom: 5px;">Price</strong>
+                                    <div class="price">
+                                        <div style="padding:0 6px 0 0 ">от</div>
+                                        <input type="text" id="minPrice_" name="minPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">
+                                        <div style="padding:0 6px">до</div>
+                                        <input type="text" id="maxPrice_" name="maxPrice_" value="" class="rm-price" onkeyup="match_changeHandler(this, 1000)">&nbsp;ТНГ.
+                                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+                      
+                </li>
                 <li>Tea</li>
                 <li>Milk</li>
               </ul>
@@ -118,7 +148,7 @@
                 <div class="container"><img src="IMAGE/Heat_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
                 <div class="container"><img src="IMAGE/Polo_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
                 <div class="container"><img src="IMAGE/Polo_2.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
-                <div class="container"><img src="IMAGE/SWS_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
+                <div class="container"><img src="IMAGE/Sweet_1.jpg" height="90%" width="90%" alt="Photo" class="item"></div>
             </div>
         </div>
     </div>
