@@ -128,6 +128,15 @@
             margin:5px;
             width:15vw ;
         }
+        .Title{
+            font-size: 4vw;
+        }
+        header{
+            height: 10.4vw;
+        }
+        .box{
+            margin-top: 12.5%;
+        }
         }   
         
         

@@ -11,9 +11,11 @@
             font-style: normal;
             font-weight: 700;
         }
-        body{
-            margin: 0px;
-        }
+        html, body {
+            overflow: hidden;
+        height: 100%;
+        margin: 0px;
+    }
         
         header{
             position: fixed;
@@ -36,14 +38,6 @@
             margin-left: 10px;
             font-size: 2vw;
         }
-        .up{
-            color: white;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            margin-left: 10px;
-            font-size: 2vw;
-        }
         
         a{
             text-decoration-line:none ;
@@ -58,14 +52,14 @@
             text-align:center;
             width: 50%;
             
-            padding-top:6%;
+            padding-top:10vh;
         }
         .Right{
             width: 50%;
             background-color:#DDD9D9;
             padding: 20px;
             padding-top:80px;
-            height:75vh ;
+            height:90vh;
         }
         .size{
             display:flex;
@@ -73,17 +67,28 @@
         .size > div{
             margin:5px;
             font-size:20px;
+        }@media only screen and (max-width: 680px) {
+        
+        .Title{
+            font-size: 4vw;
         }
+        header{
+            height: 10.4vw;
+        }
+        .box{
+            margin-top: 10%;
+        }
+        }   
         
     </style>
 </head>
 <body>
     <header>
-        <a href="info.php"><h2 class="up">Info</h2></a>
-        <a href="Catalog.php"><h2 class="up">Catalog</h2></a>
+        <a href="info.php"><h2 class="Title">Info</h2></a>
+        <a href="Catalog.php"><h2 class="Title">Catalog</h2></a>
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
-        <a href="Basket.php"><h2 class="up">Basket</h2></a>
-        <a href="Account.php"> <h2 class="up">Account</h2> </a>
+        <a href="Basket.php"><h2 class="Title">Basket</h2></a>
+        <a href="Account.php"> <h2 class="Title">Account</h2> </a>
         
     </header>
     <div class="box">
@@ -96,7 +101,7 @@
                     $res = $stmt->fetchAll();
                     $price = $res[0]['Price'];
                     $Com =$res[0]['Comment'];
-            echo '<img src=IMAGE/'. $name.' height="70%" width="50%">';
+            echo '<img src=IMAGE/'. $name.' width="400vw">';
 
             ?>
             
@@ -108,7 +113,7 @@
         ?>
             <h1 style="font-size:36px; color:#C84B31">Buy now </h1> 
             <?php
-            echo '<h1 style="font-size:48px;">'.$Com.'</h1>';
+            echo '<h1 style="font-size:48px;">'.ucfirst($Com).'</h1>';
            
         ?>   
 

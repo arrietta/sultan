@@ -36,15 +36,7 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
-            margin-left: 10px;
-            font-size: 2vw;
-        }
-        .up{
-            color: white;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            margin-left: 10px;
+            
             font-size: 2vw;
         }
         
@@ -58,15 +50,15 @@
         .box{
             transition :0.5s;
             text-align:center;
-            margin-top: 5%;
+            margin-top: 90px;
             position: relative;
             padding: 0;   
             padding-top:20px;
             z-index: 0;
         }
         .box > h1{
-            font-size: 100px;
-            line-height: 115px;
+            font-size: 8vw;
+            line-height: 7vw;
             text-shadow: black 0 0 3px;
             color: #FFFFF1;
         }
@@ -74,15 +66,24 @@
             text-shadow: black 0 0 7px;
             cursor: pointer;
         }
+        @media only screen and (max-width: 680px) {
+            .Title{
+            font-size: 4vw;
+        }
+        header{
+            height: 10.4vw;
+        }
+        
+        }  
     </style>
 </head>
 <body>
     <header>
-        <a href="info.php"><h2 class="up">Info</h2></a>
-        <a href="Catalog.php"><h2 class="up">Catalog</h2></a>
+        <a href="info.php"><h2 class="Title">Info</h2></a>
+        <a href="Catalog.php"><h2 class="Title">Catalog</h2></a>
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
-        <a href="Basket.php"><h2 class="up">Basket</h2></a>
-        <a href="Account.php"> <h2 class="up">Account</h2> </a>
+        <a href="Basket.php"><h2 class="Title">Basket</h2></a>
+        <a href="Account.php"> <h2 class="Title">Account</h2> </a>
         
     </header>
     <div class="box">
