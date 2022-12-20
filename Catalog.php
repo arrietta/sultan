@@ -30,19 +30,15 @@
             color: white;
             font-family: 'Inter';
             font-style: normal;
-            font-weight: 700;
-            
+            font-weight: 700;   
             font-size: 2vw;
         }
         
         .box{
-            margin-top: 5%;
-            position: relative;
-            padding: 0;
-            padding-right:10%;
-            padding-left: 10%;    
+            margin-top: 5%;  
             display: flex;
             z-index: 0;
+            justify-content:center;
         }
         
         
@@ -55,25 +51,20 @@
             align-items: center;
             }
 
-        .grid-container > div {
-            text-align: center;
-            align-items: center;
-            font-size: 30px;
-        }
+        
         
         .item {
             position:static;
             padding: 5%;
-        }
+            
+        } 
         .item:hover{
             padding: 5%;
             background-color: #b6c2d4;
             transition: 0.5s;
-        }
+        } 
         .left{
-            
             margin-top: 3%;
-            width: 60%;
             position: relative;
             border-right: 2px #2D4263 solid;
             padding: 5px;
@@ -108,12 +99,15 @@
         a{
             text-decoration-line:none ;
         }
-        @media only screen and (max-width: 1000px) {
+        @media only screen and (max-width: 1100px) {
             .grid-container {
             
             grid-template-columns: auto auto ;
             
             }
+            .item{
+            width: 100%;
+        }
         }   
         @media only screen and (max-width: 680px) {
             .grid-container {
@@ -126,7 +120,7 @@
         }
         .rm-price{
             margin:5px;
-            width:15vw ;
+            width:70px ;
         }
         .Title{
             font-size: 4vw;
@@ -137,6 +131,7 @@
         .box{
             margin-top: 12.5%;
         }
+        
         }   
         
         
@@ -166,33 +161,53 @@
                     </div>
                 </div>
                 <div>
+                
                     <ul class="type">
                         <strong class="Fname" >Type</strong>
-                        <li ><div ><input type="checkbox">Hoody</div> </li>
-                        <li ><div ><input type="checkbox">Tshirt</div></li>
-                        <li ><div ><input type="checkbox">SweetShirt</div></li>
-                        <li ><div ><input type="checkbox">ZIP Hoody </div></li>
-                        <li ><div ><input type="checkbox">Polo</div></li>
-                        <li ><div ><input type="checkbox">Bag</div></li>
-                        <li ><div ><input type="checkbox">Cup</div></li>
-                        <li ><div ><input type="checkbox">Cap</div></li>
-                        <li ><div ><input type="checkbox">Bottle</div></li>
+
+                        <li ><div ><input type="checkbox" id="Hoodie" value="Hoodie" onclick="chek(this)">Hoodie</div> </li>
+                        <li ><div ><input type="checkbox" id="Tshirt" value="Tshirt" onclick="chek(this)">Tshirt</div></li>
+                        <li ><div ><input type="checkbox" id="Sweetshirt" value="Sweetshirt" onclick="chek(this)">Sweetshirt</div></li>
+                        <li ><div ><input type="checkbox" id="Polo" value="Polo" onclick="chek(this)">Polo</div></li>
+                        <li ><div ><input type="checkbox" id="Bag" value="Bag" onclick="chek(this)">Bag</div></li>
+                        <li ><div ><input type="checkbox" id="Cup" value="Cup" onclick="chek(this)">Cup</div></li>
+                        <li ><div ><input type="checkbox" id="Cap" value="Cap" onclick="chek(this)">Cap</div></li>
                     </ul>
+                </form>
                 </div>
             </div>
-            
+            <script>
+                var q = '';
+                
+                function chek(t) {
+                    var f = " type =" +$(t).val();
+                var checkBox = $(t)[0];
+                console.log(checkBox);
+                if (checkBox.checked == true){
+                    
+                    q +=f;
+                } else {
+                    q.replace(f, " ");
+                
+                }
+                console.log(q);
+                document.cookie = "q = " + q;
+                }
+            </script>
             
               
         </div>
         <div class="Mid">
             <div class="grid-container">
             <?php
+
                 include "Temp/Conn.php";
-                    $stmt = $pdo->prepare("SELECT * FROM item");
+                    $q = $_COOKIE['q'];
+                    $stmt = $pdo->prepare("SELECT * FROM item where 1 ");
                     $stmt->execute();
                     $res = $stmt->fetchAll();
                     for($i = 0;$i<count($res);$i++){
-                        echo '<div class="container"><img src=IMAGE/'. $res[$i]["Name"].' height="90%" width="300vw"  alt="'.$res[$i]["Name"].'" class="item"  ></div>';
+                        echo '<div class="container"><img src=IMAGE/'. $res[$i]["Name"].' height="90%" width="270vw"  alt="'.$res[$i]["Name"].'" class="item"  ></div>';
                         
                     }
                     

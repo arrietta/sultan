@@ -47,12 +47,13 @@
             padding: 0;   
             display: flex;
             z-index: 0;
+            
         }
         .Left{
             text-align:center;
             width: 50%;
             
-            padding-top:10vh;
+            padding-top:70px;
         }
         .Right{
             width: 50%;
@@ -64,21 +65,60 @@
         .size{
             display:flex;
         }
+        .item{
+            width: 70%;
+        }
         .size > div{
             margin:5px;
             font-size:20px;
-        }@media only screen and (max-width: 680px) {
-        
+        }@media only screen and (max-width: 700px) {
+        .item{
+            width: 60%;
+            margin:30px;
+        }
         .Title{
             font-size: 4vw;
         }
         header{
-            height: 10.4vw;
+            height: 60px;
+        }
+        .box{
+            margin-top: 60px;
+            flex-direction:column;
+        }
+        .box>div{
+            width: 100%;
+            padding:10px;
+        }
+        .Right{
+            text-align:center;
+        }
+        .Right  h1{
+            margin-left: 30px;
+            margin:10px
+        }
+        
+        }  
+        @media only screen and (max-width: 520px) {
+        
+        .Title{
+            font-size: 5vw;
+        }
+        header{
+            height: 15vw;
         }
         .box{
             margin-top: 10%;
+            flex-direction:column;
         }
-        }   
+        
+        .item{
+            width: 70%;
+            margin-bottom:100px;
+        }
+        } 
+        
+        
         
     </style>
 </head>
@@ -93,6 +133,7 @@
     </header>
     <div class="box">
         <div class="Left">
+            <div>
             <?php
             $name= $_COOKIE['name'];
             include "Temp/Conn.php";
@@ -101,21 +142,26 @@
                     $res = $stmt->fetchAll();
                     $price = $res[0]['Price'];
                     $Com =$res[0]['Comment'];
-            echo '<img src=IMAGE/'. $name.' width="400vw">';
+            echo '<img src=IMAGE/'. $name.' width="400vw" class ="item">';
 
             ?>
+            </div>
+            
             
         </div>
         <div class="Right">
-        <?php
-            echo '<h1 style="font-size:48px;">'.ucfirst(substr($name ,0,strlen($name) - 4)).'</h1>';
-            echo '<h1 style="font-size:48px;">'.$price.' KZT</h1>';
-        ?>
-            <h1 style="font-size:36px; color:#C84B31">Buy now </h1> 
-            <?php
-            echo '<h1 style="font-size:48px;">'.ucfirst($Com).'</h1>';
-           
-        ?>   
+            <div>
+                <?php
+                echo '<h1 style="font-size:48px;">'.ucfirst(substr($name ,0,strlen($name) - 4)).'</h1>';
+                echo '<h1 style="font-size:48px;">'.$price.' KZT</h1>';
+                ?>
+                <h1 style="font-size:36px; color:#C84B31">Buy now </h1> 
+                <?php
+                echo '<h1 style="font-size:48px;">'.ucfirst($Com).'</h1>';
+            
+                ?> 
+            </div>
+          
 
             
         </div>
