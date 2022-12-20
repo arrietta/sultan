@@ -13,9 +13,6 @@
         }
         body{
             margin: 0px;
-            background-image:url("IMAGE/Back.png");
-            background-size:cover;
-            transition :0.5s;
         }
         
         header{
@@ -36,42 +33,25 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 700;
-            
+            margin-left: 10px;
             font-size: 2vw;
         }
-        
-        a{
+        .a{
             text-decoration-line:none ;
         }
-        
         .box{
-            transition :0.5s;
-            text-align:center;
-            margin-top: 90px;
-            position: relative;
-            padding: 0;   
-            padding-top:20px;
-            z-index: 0;
+            margin-top: 7%;
+            text-align: center;
+            color: black;
         }
-        .box > h1{
-            font-size: 8vw;
-            line-height: 7vw;
-            text-shadow: black 0 0 3px;
-            color: #FFFFF1;
+        #reg input{
+            font-size: 30px;
+           margin: 10px;
         }
-        #start:hover{
-            text-shadow: black 0 0 7px;
-            cursor: pointer;
+        #reg label{
+            font-size: 30px;
+            margin: 10px;
         }
-        @media only screen and (max-width: 680px) {
-            .Title{
-            font-size: 4vw;
-        }
-        header{
-            height: 10.4vw;
-        }
-        
-        }  
     </style>
 </head>
 <body>
@@ -81,23 +61,26 @@
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
         <a href="Basket.php"><h2 class="Title">Basket</h2></a>
         <a href="reg.php"> <h2 class="Title">Account</h2> </a>
-        
     </header>
     <div class="box">
-        <H1 >WELCOME TO OUR</H1>
-        <h1>SDU STORE</h1>
-        <H1 id="start">Start</h1>
+        
     </div>
-    <script>
-        $('#start').click(function(){
-            $('body').css("opacity",0.0);
-            setTimeout(function() { window.open("Catalog.php" ,"_self");},500);
+    <?php
+        try {
+            session_start(); 
+            $login= $_SESSION['ID'];
+            include 'Temp/Conn.php';
+            $stmt = $pdo->prepare("SELECT * FROM basket where id='$login'");
+            $stmt->execute();
+            $res = $stmt->fetchAll();        
+            }catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+            $conn = null;
             
-            
-            
-        });
-    </script>
-    
+                  
+                  
+  ?>
     
 </body>
 </html>

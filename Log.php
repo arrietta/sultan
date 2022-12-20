@@ -36,14 +36,7 @@
             margin-left: 10px;
             font-size: 2vw;
         }
-        .up{
-            color: white;
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            margin-left: 10px;
-            font-size: 2vw;
-        }a{
+        .a{
             text-decoration-line:none ;
         }
         .box{
@@ -73,7 +66,7 @@
         <a href="reg.php"> <h2 class="up">Account</h2> </a>
     </header>
     <div class="box">
-        <H1>Registration</H1>
+        
         <form action="" method="post" id="reg">
             <label for="login">Login</label><br>
             <input type="text" name="login" id="login" ><br>
@@ -81,7 +74,7 @@
             <input type="text" name="password" id="password"><br>
             <input type="submit" value="Submit"><br>
         </form>
-        <a href="Reg.php">Registrtation</a>
+        <a href="Reg.php">Register</a>
     </div>
     <?php
         session_start();
@@ -123,6 +116,28 @@
                   session_start();
                   $_SESSION['ID'] = $login;
                   $_COOKIE['n'] = $login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     echo 'good';
                   header("location: acc.php");
                   exit();

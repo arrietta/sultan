@@ -139,11 +139,11 @@
             <?php
             $name= $_COOKIE['name'];
             include "Temp/Conn.php";
-                    $stmt = $pdo->prepare("SELECT * FROM item where name = '$name' ");
-                    $stmt->execute();
-                    $res = $stmt->fetchAll();
-                    $price = $res[0]['Price'];
-                    $Com =$res[0]['Comment'];
+                $stmt = $pdo->prepare("SELECT * FROM item where name = '$name' ");
+                $stmt->execute();
+                $res = $stmt->fetchAll();
+                $price = $res[0]['Price'];
+                $Com =$res[0]['Comment'];
             echo '<img src=IMAGE/'. $name.' width="400vw" class ="item">';
 
             ?>
@@ -157,54 +157,43 @@
                 echo '<h1 style="font-size:48px;">'.ucfirst(substr($name ,0,strlen($name) - 4)).'</h1>';
                 echo '<h1 style="font-size:48px;">'.$price.' KZT</h1>';
                 ?>
-                <a href="#"><h1 style="font-size:36px; color:#C84B31" id ="buy">Buy now </h1> </a>
+                <form action="" method="post">
+                <input style="font-size:36px; color:#C84B31" type="submit" value="Buy Now"><br>
+                
+                </form>
+                
                 <?php
                 echo '<h1 style="font-size:48px;">'.ucfirst($Com).'</h1>';
             
                 ?> 
             </div>
-          
+          <?php 
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            try{
+
+            
+            session_start();
+            $id = $_SESSION['ID'];
+            if($id !='null' ){
+                $sql = "INSERT INTO basket 
+                VALUES ('$id','$name','$price')";
+                $pdo->exec($sql);
+                echo "Successfully";
+            }else{
+                header("location: reg.php");
+                exit();
+            }
+            }catch(Exception $e){
+                echo "Alrady in Basket";
+            }
+          }
+            
+          ?>
 
             
         </div>
     </div>
-    <?php 
-    
-            function buy (){
-                $login = 'null';
-                try{
-                    $login =  $_COOKIE['Login'];
-                }catch(Exception $e) {
-                    $login = null;
-                    
-                }
-                if($login!=null){
-                    include "Temp/Conn.php";
-                    $q = $_COOKIE['q'];
-                    $sql = "INSERT INTO login 
-                    VALUES ('$login','$Pass')";
-                    $pdo->exec($sql);
-                    echo '1';
-                }else{
-                    echo'2';
-                }
-                
-                    
-            }   
-               ?>
-    <script type="text/javascript"> 
-
-
-        $('#buy').click(function(){
-            <?php buy();?>
-        });
-        
-        
-    </script>
-    <?php 
-        
-        
-    ?>
+   
     
     
     
