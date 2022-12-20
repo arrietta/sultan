@@ -53,7 +53,7 @@
             text-align:center;
             width: 50%;
             
-            padding-top:70px;
+            padding-top:60px;
         }
         .Right{
             width: 50%;
@@ -71,9 +71,10 @@
         .size > div{
             margin:5px;
             font-size:20px;
-        }@media only screen and (max-width: 700px) {
+        }
+    @media only screen and (max-width: 700px) {
         .item{
-            width: 60%;
+            width: 70%;
             margin:30px;
         }
         .Title{
@@ -89,17 +90,21 @@
         .box>div{
             width: 100%;
             padding:10px;
+            height: 500px;
         }
+        
         .Right{
+            margin-top:50px;
+            
             text-align:center;
         }
-        .Right  h1{
+        .Right h1{
             margin-left: 30px;
             margin:10px
         }
         
-        }  
-        @media only screen and (max-width: 520px) {
+    }  
+    @media only screen and (max-width: 520px) {
         
         .Title{
             font-size: 5vw;
@@ -108,18 +113,15 @@
             height: 15vw;
         }
         .box{
-            margin-top: 10%;
             flex-direction:column;
         }
+        
         
         .item{
             width: 70%;
             margin-bottom:100px;
         }
-        } 
-        
-        
-        
+    } 
     </style>
 </head>
 <body>
@@ -128,7 +130,7 @@
         <a href="Catalog.php"><h2 class="Title">Catalog</h2></a>
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
         <a href="Basket.php"><h2 class="Title">Basket</h2></a>
-        <a href="Account.php"> <h2 class="Title">Account</h2> </a>
+        <a href="reg.php"><h2 class="Title">Account</h2> </a>
         
     </header>
     <div class="box">
@@ -155,7 +157,7 @@
                 echo '<h1 style="font-size:48px;">'.ucfirst(substr($name ,0,strlen($name) - 4)).'</h1>';
                 echo '<h1 style="font-size:48px;">'.$price.' KZT</h1>';
                 ?>
-                <h1 style="font-size:36px; color:#C84B31">Buy now </h1> 
+                <a href="#"><h1 style="font-size:36px; color:#C84B31" id ="buy">Buy now </h1> </a>
                 <?php
                 echo '<h1 style="font-size:48px;">'.ucfirst($Com).'</h1>';
             
@@ -166,6 +168,43 @@
             
         </div>
     </div>
+    <?php 
+    
+            function buy (){
+                $login = 'null';
+                try{
+                    $login =  $_COOKIE['Login'];
+                }catch(Exception $e) {
+                    $login = null;
+                    
+                }
+                if($login!=null){
+                    include "Temp/Conn.php";
+                    $q = $_COOKIE['q'];
+                    $sql = "INSERT INTO login 
+                    VALUES ('$login','$Pass')";
+                    $pdo->exec($sql);
+                    echo '1';
+                }else{
+                    echo'2';
+                }
+                
+                    
+            }   
+               ?>
+    <script type="text/javascript"> 
+
+
+        $('#buy').click(function(){
+            <?php buy();?>
+        });
+        
+        
+    </script>
+    <?php 
+        
+        
+    ?>
     
     
     

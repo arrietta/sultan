@@ -83,7 +83,7 @@
         <a href="Catalog.php"><h2 class="Title">Catalog</h2></a>
         <a href="index.php"><h1 class="Title">SDU STORE</h1></a>
         <a href="Basket.php"><h2 class="Title">Basket</h2></a>
-        <a href="Account.php"> <h2 class="Title">Account</h2> </a>
+        <a href="reg.php"> <h2 class="Title">Account</h2> </a>
         
     </header>
     <div class="box">
