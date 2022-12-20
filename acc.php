@@ -51,6 +51,9 @@
             text-align: center;
             color: black;
         }
+        #ex{
+            font-size:30px;
+        }
         
         
         
@@ -79,12 +82,17 @@
         print_r ('<H1>Password: '.$res[0]['Surname']."</H1><br>");
         print_r ('<H1>Password: '.$res[0]['Number']."</H1><br>");
         ?>
-        <a href="#"><h1 style="font-size:36px; color:#C84B31" id ="buy">Buy now </h1> </a>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
+        <input type="submit" value="Exit" id ='ex'><br>
+        </form>
+           
+        
                 
     </div>
     <?php 
 
-            $n = $name= $_COOKIE['n'];
+            
             function buy (){
                 session_start();
                 $_SESSION['ID'] = 'null';
@@ -92,20 +100,13 @@
                   exit();
                     
             }   
-            if($n=='null'){
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 buy();
             }
-               ?>
             
-        <script type="text/javascript"> 
-
-
-        $('#buy').click(function(){
-            document.cookie = "n = null" ;
-        });
+    ?>
+            
         
-        
-    </script>
     
 </body>
 </html>
